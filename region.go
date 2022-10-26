@@ -383,6 +383,8 @@ func GetRegionFromString(region string, y int) (Region, error) {
 	region = strings.ReplaceAll(region, "ü", "ue")
 	region = strings.ReplaceAll(region, "ö", "oe")
 	switch region {
+	case "germany", "deutschland":
+		return Deutschland(y), nil
 	case "badenwuerttemberg":
 		return BadenWürttemberg(y), nil
 	case "bayern":
@@ -415,6 +417,8 @@ func GetRegionFromString(region string, y int) (Region, error) {
 		return SchleswigHolstein(y), nil
 	case "thueringen":
 		return Thüringen(y), nil
+	case "oestereich", "austria":
+		return Österreich(y), nil
 	case "burgenland":
 		return Burgenland(y), nil
 	case "kaernten":
